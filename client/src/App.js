@@ -7,8 +7,6 @@ import {
 } from "react-router-dom";
 import Comic from './components/Comic';
 
-import 'semantic-ui-css/semantic.min.css';
-
 function App() {
   return (
     <Router>
