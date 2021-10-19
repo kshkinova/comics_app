@@ -5,11 +5,9 @@ const axios = require('axios');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-const client_env = "http://localhost:3000"; 
-
 app.use(cors());
 
-app.get('/current', cors(corsOptions), async (req, res) => {
+app.get('/current', cors(), async (req, res) => {
     try {
         await axios.get('https://xkcd.com/info.0.json').then(response => {
             res.json(response.data);
@@ -20,7 +18,7 @@ app.get('/current', cors(corsOptions), async (req, res) => {
     }
 });
 
-app.get('/:id', cors(corsOptions), async (req, res) => {
+app.get('/:id', cors(), async (req, res) => {
     try {
         var id = req.params.id;
         await axios.get(`https://xkcd.com/${id}/info.0.json`).then(response => {
