@@ -2,16 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
-const api_env = `http://localhost:${PORT}`;
 const client_env = "http://localhost:3000"; 
 
 app.use(cors());
-const corsOptions = {
-    origin: client_env
-};
 
 app.get('/current', cors(corsOptions), async (req, res) => {
     try {
@@ -38,5 +34,5 @@ app.get('/:id', cors(corsOptions), async (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Listening at ${api_env}`);
+    console.log(`Listening at ${PORT}`);
 });
